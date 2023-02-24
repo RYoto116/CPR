@@ -163,6 +163,8 @@ class BPR(object):
             self.all_embeds = create_lightgcn_embed(
                 self.all_embeds_0, s_norm_adj, args.n_layer
             )
+        elif args.embed_type == 'SGL':
+            None
 
         self.u_embeds, self.i_embeds = tf.split(
             self.all_embeds, [self.dataset.n_user, self.dataset.n_item], 0
